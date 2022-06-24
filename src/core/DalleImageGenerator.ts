@@ -51,9 +51,9 @@ export class DalleImageGenerator {
         const { images } = await generate(options.prompt);
         retryCount += 1;
 
-        console.log("Generated images: ", images.length);
+        console.log("\nGenerated images: ", images.length);
         const outpath = options.output || DEFAULT_OUTPUT;
-        await fs.emptyDir(outpath);
+        await fs.ensureDir(outpath);
 
         const saveImagePromises: Promise<void>[] = [];
         for (const img of images) {
@@ -89,7 +89,6 @@ export class DalleImageGenerator {
     const filename = options.filename || getFileNameForPrompt(options.prompt);
     const baseFilePath = path.join(outpath, filename);
     const filepath = `${baseFilePath}_${index}.png`;
-    console.log(filepath);
     await Deno.writeFile(filepath, await img.encode());
   }
 }
