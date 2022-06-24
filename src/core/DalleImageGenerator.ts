@@ -3,6 +3,7 @@ import { Ref } from "../types/ref.ts";
 import { generate } from "./generate.ts";
 import * as path from "std/path";
 import * as fs from "std/fs";
+import { Counter } from "../utils/counter.ts";
 
 const CHAR_WHITELIST_REGEX = /[^\w]/g;
 export const DEFAULT_RETRY = 3;
@@ -30,16 +31,16 @@ export class DalleImageGenerator {
 
     const generateBatchPromises: Promise<void>[] = [];
     const batch = Math.max(1, options.batch || DEFAULT_BATCH);
-    const ref: Ref<number> = { value: 0 };
+    const counter = new Counter();
 
     for (let i = 0; i < batch; i++) {
-      generateBatchPromises.push(this.newBatch(ref));
+      generateBatchPromises.push(this.newBatch(counter));
     }
 
     await Promise.all(generateBatchPromises);
   }
 
-  private async newBatch(index: Ref<number>) {
+  private async newBatch(counter: Counter) {
     const options = this.options;
     const retry = Math.max(0, options.retry || DEFAULT_RETRY);
     let canRetry = true;
@@ -50,18 +51,21 @@ export class DalleImageGenerator {
         const { images } = await generate(options.prompt);
         retryCount += 1;
 
+        console.log("Generated images: ", images.length);
         const outpath = options.output || DEFAULT_OUTPUT;
         await fs.emptyDir(outpath);
 
         const saveImagePromises: Promise<void>[] = [];
         for (const img of images) {
+          const index = counter.incrementGet();
           saveImagePromises.push(this.saveImage(index, img, outpath));
         }
 
         // If we fail to save images don't retry
         try {
           await Promise.all(saveImagePromises);
-        } catch {
+        } catch (e) {
+          console.error(e);
           canRetry = false;
         }
 
@@ -80,16 +84,13 @@ export class DalleImageGenerator {
     }
   }
 
-  private async saveImage(index: Ref<number>, img: Image, outpath: string) {
+  private async saveImage(index: number, img: Image, outpath: string) {
     const options = this.options;
     const filename = options.filename || getFileNameForPrompt(options.prompt);
     const baseFilePath = path.join(outpath, filename);
-
-    const filepath = `${baseFilePath}_${index.value}.png`;
+    const filepath = `${baseFilePath}_${index}.png`;
+    console.log(filepath);
     await Deno.writeFile(filepath, await img.encode());
-
-    // Increment the index
-    index.value += 1;
   }
 }
 

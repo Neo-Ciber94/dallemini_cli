@@ -50,7 +50,6 @@ function renderProgressBar(signal: AbortSignal) {
     complete: "=",
     incomplete: "-",
     width: 50,
-    clear: true,
   });
 
   let current = 0;
