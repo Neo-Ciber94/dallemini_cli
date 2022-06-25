@@ -1,4 +1,4 @@
-name: DALL-E Mini Healthcheck
+name: Healthcheck
 
 on:
  schedule: 
