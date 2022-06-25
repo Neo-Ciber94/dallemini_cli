@@ -8,7 +8,7 @@ jobs:
  healthcheck:
   runs-on: ubuntu-latest
   steps:
-  
+
     # Checks https://bf.dallemini.ai
     - name: Status https://bf.dallemini.ai
       run:  curl https://bf.dallemini.ai --get --fail
