@@ -2,6 +2,9 @@
 
 [![CI](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml)
 
+[![DALL-E Mini HealthCheck](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/healthcheck.yml/badge.svg)](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/healthcheck.yml)
+
+
 A CLI utility for generate images using DALL·E mini.
 
 ## Usage
