@@ -2,9 +2,9 @@ import { Image } from "imagescript";
 import { generate } from "./generate.ts";
 import * as path from "std/path";
 import * as fs from "std/fs";
-import { Counter } from "../utils/counter.ts";
 import { merge } from "../utils/merge.ts";
 import * as colors from "std/colors";
+import { Counter } from "../utils/counter.ts";
 
 const CHAR_WHITELIST_REGEX = /[^\w]/g;
 export const DEFAULT_RETRY = 3;
