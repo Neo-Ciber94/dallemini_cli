@@ -24,7 +24,7 @@ jobs:
           deno-version: v1.x
 
       - name: Check typing
-        run: deno check -A src/main.ts
+        run: deno check src/main.ts
 
       - name: Run linter
         run: deno lint
