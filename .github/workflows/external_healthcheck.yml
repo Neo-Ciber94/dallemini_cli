@@ -1,0 +1,17 @@
+name: DALL-E Mini Healthcheck
+
+on:
+ schedule: 
+  - cron: "0 2 * * *"
+  
+jobs:
+ dallemini_healthcheck:
+  runs-on: ubuntu-latest
+  steps:
+    # Check if https://bf.dallemini.ai still up
+    - name: Status https://bf.dallemini.ai
+    - run:  curl https://bf.dallemini.ai --get --fail
+    
+    # Check if https://bf.dallemini.ai/generate still up
+    - name: Status https://bf.dallemini.ai/generate
+    - run:  curl https://bf.dallemini.ai/generate -X OPTIONS --fail
