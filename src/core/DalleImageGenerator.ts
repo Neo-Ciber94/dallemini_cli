@@ -83,11 +83,15 @@ export class DalleImageGenerator {
     this.logger.debug(`With ${retry} ${retry > 1 ? "retries" : "retry"}`);
     this.logger.debug(`With output path: ${this.getOutputPath()}`);
 
+    const startTime = Date.now();
     for (let i = 0; i < batch; i++) {
       generateBatchPromises.push(this.newBatch(i + 1, counter));
     }
 
     await Promise.all(generateBatchPromises);
+    const totalTime = Date.now() - startTime;
+    this.logger.info("Done");
+    this.logger.debug(`Duration ${totalTime / 1000} seconds`);
   }
 
   private async newBatch(batchId: number, counter: Counter) {
