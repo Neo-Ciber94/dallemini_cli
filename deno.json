@@ -1,7 +1,7 @@
 {
   "tasks": {
     "run": "deno run --unstable --allow-net --allow-write --allow-read ./src/main.ts",
-    "compile": "deno compile --unstable  -A --output ./dist/dallemini ./src/main.ts"
+    "compile": "deno compile --unstable --import-map=./import-map.json -A --output ./dist/dallemini ./src/main.ts"
   },
   "importMap": "./import-map.json"
 }
