@@ -30,6 +30,6 @@ A CLI utility for generate images using DALL·E mini.
 
 ## TODO
 
-- [ ] Add verbose logging
+- [x] Add verbose logging
 - [ ] Add CI
 - [ ] Add Github cron action to test if the dall-e mini service still available

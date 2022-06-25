@@ -2,7 +2,7 @@
   "imports": {
     "std/path": "https://deno.land/std@0.144.0/path/mod.ts",
     "std/base64": "https://deno.land/std@0.63.0/encoding/base64.ts",
-    "std/async": "https://deno.land/std@0.145.0/async/mod.ts",
+    "std/colors": "https://deno.land/std@0.145.0/fmt/colors.ts",
     "std/fs": "https://deno.land/std@0.144.0/fs/mod.ts",
     "imagescript": "https://deno.land/x/imagescript@v1.2.13/mod.ts",
     "cliffy": "https://deno.land/x/cliffy@v0.24.2/mod.ts",

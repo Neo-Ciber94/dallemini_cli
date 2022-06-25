@@ -8,6 +8,5 @@ const command = new Command()
   .command("generate", generate)
   .example("Generate image", "\n\ndallemini generate --output ./out pizza")
   .meta("DALL-E Mini", "https://huggingface.co/spaces/dalle-mini/dalle-mini");
-  //.action(() => command.showHelp());
 
 await command.parse(Deno.args);
