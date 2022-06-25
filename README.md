@@ -1,5 +1,7 @@
 # DALL·E mini CLI
 
+[![CI](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml)
+
 A CLI utility for generate images using DALL·E mini.
 
 ## Usage
@@ -27,9 +29,3 @@ A CLI utility for generate images using DALL·E mini.
 
     Generate image: dallemini generate --output ./out pizza
 ```
-
-## TODO
-
-- [x] Add verbose logging
-- [ ] Add CI
-- [ ] Add Github cron action to test if the dall-e mini service still available
