@@ -7,6 +7,8 @@
 
 A CLI utility for generate images using DALL·E mini.
 
+>Try it out **DALLE-Mini**: https://huggingface.co/spaces/dalle-mini/dalle-mini
+
 ## Usage
 
 ```bash
