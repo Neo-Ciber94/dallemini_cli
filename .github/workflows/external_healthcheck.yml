@@ -11,8 +11,8 @@ jobs:
   
     # Checks https://bf.dallemini.ai
     - name: Status https://bf.dallemini.ai
-    - run:  curl https://bf.dallemini.ai --get --fail
+      run:  curl https://bf.dallemini.ai --get --fail
     
     # Checks https://bf.dallemini.ai/generate 
     - name: Status https://bf.dallemini.ai/generate
-    - run:  curl https://bf.dallemini.ai/generate -X OPTIONS --fail
+      run:  curl https://bf.dallemini.ai/generate -X OPTIONS --fail
