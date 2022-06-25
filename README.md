@@ -13,7 +13,7 @@ A CLI utility for generate images using DALL·E mini.
 
 ```bash
   Usage:   dallemini generate <prompt>
-  Version: 0.2.0
+  Version: 0.2.1
 
   DALL-E Mini: https://huggingface.co/spaces/dalle-mini/dalle-mini
 

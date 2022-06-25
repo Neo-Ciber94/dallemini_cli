@@ -22,6 +22,10 @@ export async function generate(prompt: string): Promise<GeneratedImage> {
     body: JSON.stringify({ prompt }),
   });
 
+  if (!res.ok) {
+    throw new Error(res.statusText);
+  }
+
   const json: DalleMiniGenerateImageResponse = await res.json();
   const imagesPromises = json.images
     .map((s) => s.replaceAll(`\\n`, ""))
