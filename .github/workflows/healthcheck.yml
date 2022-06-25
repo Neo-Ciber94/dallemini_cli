@@ -1,0 +1,25 @@
+name: DALL-E Mini HealthCheck
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule: 
+    - cron: "0 2 * * *"
+  
+  # Allow manually run the action
+  workflow_dispatch:
+    
+jobs:
+ healthcheck:
+  runs-on: ubuntu-latest
+  steps:
+
+    # Checks https://bf.dallemini.ai
+    - name: Status https://bf.dallemini.ai
+      run:  curl https://bf.dallemini.ai --get --fail
+    
+    # Checks https://bf.dallemini.ai/generate 
+    - name: Status https://bf.dallemini.ai/generate
+      run:  curl https://bf.dallemini.ai/generate -X OPTIONS --fail
