@@ -39,7 +39,7 @@ const generate = new Command()
       : undefined;
 
     const abortController = new AbortController();
-    const bars = renderProgressBar(abortController.signal);
+    const _bars = renderProgressBar(abortController.signal);
 
     const imageGenerator = new DalleImageGenerator({
       filename: name,
