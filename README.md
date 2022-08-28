@@ -1,9 +1,11 @@
 # DALL·E mini CLI
 
-[![CI](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml)
+[![CI][ci_badge]][ci] [![DALL-E Mini HealthCheck][hcheck_badge]][hcheck]
 
-[![DALL-E Mini HealthCheck](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/healthcheck.yml/badge.svg)](https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/healthcheck.yml)
-
+[ci]: https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml
+[ci_badge]: https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/ci.yml/badge.svg
+[hcheck]: https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/healthcheck.yml
+[hcheck_badge]: https://github.com/Neo-Ciber94/dallemini_cli/actions/workflows/healthcheck.yml/badge.svg
 
 A CLI utility for generate images using DALL·E mini.
 
